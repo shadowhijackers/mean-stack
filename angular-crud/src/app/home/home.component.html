@@ -5,13 +5,13 @@
       </header>
       <br />
       <div class="container">
-        <div class="text-right">
+        <div class="d-flex justify-content-between">
           <div class="col-3">
             <input
                     type="text"
                     class="form-control"
                     placeholder="Search students"
-                    name="doj"
+                    name="search-students"
                     [ngModel]="searchStr"
                     (ngModelChange)="onSearch($event)"
             />
