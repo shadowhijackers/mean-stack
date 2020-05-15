@@ -38,17 +38,19 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
+angular-crud/node_modules/
+crud-api/node_modules/
 jspm_packages/
 
 # TypeScript v1 declaration files
-typings/
+angular-crud/typings/
 
 # TypeScript cache
 *.tsbuildinfo
 
 # Optional npm cache directory
-.npm
+angular-crud/.npm
+crud-api/.npm
 
 # Optional eslint cache
 .eslintcache

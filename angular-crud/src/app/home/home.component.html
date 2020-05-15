@@ -1,0 +1,87 @@
+<div class="view">
+  <div class="container">
+      <header>
+          <h3><span class="glyphicon glyphicon-info-sign"></span> Home</h3>
+      </header>
+      <br />
+      <div class="container">
+        <div class="text-right">
+          <button type="submit" class="btn btn-primary" (click)="onNew()">
+            New Student
+          </button>
+        </div>
+        <br>
+        <div>
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>#</th>
+
+              <th>First Name</th>
+
+              <th>Last Name</th>
+
+              <th>DOB</th>
+
+              <th>DOJ</th>
+
+              <th>Email</th>
+
+              <th>Dept</th>
+
+              <th></th>
+
+              <th></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr *ngFor="let student of students; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+
+              <td>{{ student?.firstName }}</td>
+
+              <td>{{ student?.lastName }}</td>
+
+              <td>
+                {{
+                student?.dob?.day +
+                "/" +
+                student?.dob?.month +
+                "/" +
+                student?.dob?.year
+                }}
+              </td>
+
+              <td>
+                {{
+                student?.doj?.day +
+                "/" +
+                student?.doj?.month +
+                "/" +
+                student?.doj?.year
+                }}              </td>
+
+              <td>{{ student?.email }}</td>
+
+              <td>{{ student?.dept }}</td>
+
+              <td>
+                <button type="button" class="btn btn-info" (click)="onEdit(i)">
+                  Edit
+                </button>
+              </td>
+
+              <td>
+                <button type="button" class="btn btn-danger" (click)="onDelete(i)">
+                  Delete
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+  </div>
+</div>

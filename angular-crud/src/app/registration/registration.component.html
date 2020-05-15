@@ -1,0 +1,164 @@
+<div class="container">
+  <div *ngIf="regModel" class="regentry">
+    <form (ngSubmit)="onSave()">
+      <div class="form-group row">
+        <label for="id-input" class="col-2 col-form-label"
+        >Student Id</label
+        >
+
+        <div class="col-10">
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="regModel.id"
+            name="id"
+          />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="firstname-input" class="col-2 col-form-label"
+          >First Name</label
+        >
+
+        <div class="col-10">
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="regModel.firstName"
+            name="firstName"
+          />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="lastname-input" class="col-2 col-form-label"
+          >Last Name</label
+        >
+
+        <div class="col-10">
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="regModel.lastName"
+            name="lastName"
+          />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="dob-input" class="col-2 col-form-label">DOB</label>
+
+        <div class="col-3 input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="yyyy-mm-dd"
+            name="dob"
+            [(ngModel)]="regModel.dob"
+            ngbDatepicker
+            #dob="ngbDatepicker"
+          />
+
+          <button
+            class="input-group-addon"
+            (click)="dob.toggle()"
+            type="button"
+          >
+            <img
+              src="assets/img/calendar-icon.svg"
+              style="width: 1.2rem; height: 1rem; cursor: pointer;"
+            />
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="dob-input" class="col-2 col-form-label">DOJ</label>
+
+        <div class="col-3 input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="yyyy-mm-dd"
+            name="doj"
+            [(ngModel)]="regModel.doj"
+            ngbDatepicker
+            #doj="ngbDatepicker"
+          />
+
+          <button
+            class="input-group-addon"
+            (click)="doj.toggle()"
+            type="button"
+          >
+            <img
+              src="assets/img/calendar-icon.svg"
+              style="width: 1.2rem; height: 1rem; cursor: pointer;"
+            />
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="email-input" class="col-2 col-form-label">Email</label>
+
+        <div class="col-10">
+          <input
+            class="form-control"
+            type="email"
+            [(ngModel)]="regModel.email"
+            name="email"/>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="password-input" class="col-2 col-form-label"
+          >Password</label>
+
+        <div class="col-10">
+          <input
+            class="form-control"
+            type="password"
+            [(ngModel)]="regModel.password"
+            name="password"/>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="dept-input" class="col-2 col-form-label">Department</label>
+
+        <div class="col-10 dropdown" ngbDropdown myDrop="ngbDropdown">
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            id="dropdownManual"
+            name="dept"
+            ngbDropdownToggle
+          >
+            {{ regModel.dept }}
+          </button>
+
+          <div ngbDropdownMenu aria-labelledby="dropdownManual">
+            <button
+              type="button"
+              class="dropdown-item"
+              *ngFor="let dept of depts"
+              (click)="onChangeCompany(dept)"
+            >
+              {{ dept }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success">{{ submitType }}</button>
+
+      <button type="submit" class="btn btn-primary" (click)="onCancel()">
+        Cancel
+      </button>
+    </form>
+  </div>
+
+  <br />
+</div>
