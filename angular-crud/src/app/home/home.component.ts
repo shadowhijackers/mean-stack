@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
 
   students: Student[] = [];
   selectedRow: number;
+  searchStr = '';
 
   constructor(
     private apiService: ApiService,
@@ -35,6 +36,17 @@ export class HomeComponent implements OnInit {
   onNew() {
     this.router.navigateByUrl('/registration');
   }
+
+  onSearch(searchStr) {
+    this.apiService.getStudents(searchStr).subscribe((res) => {
+      if (!!res.error) {
+        this.students = [];
+      } else {
+        this.students = res.data as Student[];
+      }
+    });
+  }
+
 
 
   onEdit(index: number) {

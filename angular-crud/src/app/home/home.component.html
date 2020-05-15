@@ -6,6 +6,16 @@
       <br />
       <div class="container">
         <div class="text-right">
+          <div class="col-3">
+            <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search students"
+                    name="doj"
+                    [ngModel]="searchStr"
+                    (ngModelChange)="onSearch($event)"
+            />
+          </div>
           <button type="submit" class="btn btn-primary" (click)="onNew()">
             New Student
           </button>

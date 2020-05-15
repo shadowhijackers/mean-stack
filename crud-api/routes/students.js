@@ -8,7 +8,7 @@ router.get('/', function (req, res) {
   var query = {};
   if(req.query.q){
     query = {
-      "$or": [{'fistName': req.query.q}, {'lastName': req.query.q}, {'email': req.query.q} ]
+      "$or": [{'fistName': new RegExp(req.query.q)}, {'lastName': new RegExp(req.query.q)}, {'email': new RegExp(req.query.q)} ]
     }
   }
 

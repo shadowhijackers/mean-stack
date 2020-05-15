@@ -19,8 +19,13 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getStudents(): Observable<StudentAPIResponse> {
-    return this.http.get<StudentAPIResponse>(`${this.apiUrl}/students`);
+  getStudents(searchStr = null): Observable<StudentAPIResponse> {
+
+    let url = `${this.apiUrl}/students`;
+    if (searchStr) {
+      url = `${url}?q=${searchStr}`;
+    }
+    return this.http.get<StudentAPIResponse>(url);
   }
 
   getStudentById(id: string): Observable<StudentAPIResponse> {

@@ -55,6 +55,7 @@ export class RegistrationComponent implements OnInit {
       this.apiService.addStudent(this.regModel).subscribe((res) => {
         if (!res.error) {
           swal('Add new Student!', 'Added new student successfully!', 'success');
+          this.onNew();
         } else {
           swal('Add new Student!', res.error, 'error');
         }
